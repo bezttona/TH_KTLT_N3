@@ -1,16 +1,13 @@
 #include<stdio.h>
 #include<stdbool.h>
-int n;
-float f[100][100];
-float Det=0;
-void Tinh_dinh_thuc(int i,int *x,int *a,bool *used)
+void Tinh_dinh_thuc(int i,float f[100][100],int n,float* Det,int *x,bool *used)
 {
 	int j;
 	for(j=0;j<n;j++)
 	{
 		if(!used[j])
 		{
-			x[i]=a[j];
+			x[i]=j;
 			used[j]=1;
 			if(i==n-1)
 			{
@@ -20,22 +17,22 @@ void Tinh_dinh_thuc(int i,int *x,int *a,bool *used)
 				{
 					for(q=k+1;q<n;q++)
 					if (x[k]>x[q]) N++;
-					tich*=f[a[k]][x[k]];
+					tich*=f[k][x[k]];
 				}
-				if(N%2!=0) Det-=tich;
-				else Det+=tich;
+				if(N%2!=0) *Det-=tich;
+				else *Det+=tich;
 			}
-			else Tinh_dinh_thuc(i+1,x,a,used);
+			else Tinh_dinh_thuc(i+1,f,n,Det,x,used);
 			used[j]=0;
 		}
 	}
 }
-void Xuat()
+void Xuat(float f[100][100],int n)
 {
 	int i,j;
-	for(i=1;i<=n;i++)
+	for(i=0;i<n;i++)
 	{
-		for(j=1;j<=n;j++)
+		for(j=0;j<n;j++)
 		{
 			printf("%0.4f ",f[i][j]);
 		}
@@ -44,19 +41,22 @@ void Xuat()
 }
 main()
 {
+	int n;
 	scanf("%d",&n);
 	int i,j;
-	for(i=1;i<=n;i++)
+	float f[100][100];
+	for(i=0;i<n;i++)
 	{
-		for(j=1;j<=n;j++)
+		for(j=0;j<n;j++)
 		{
 			scanf("%f",&f[i][j]);
 		}
 	}
-	Xuat();
+	float* Det=(float*)calloc(1,sizeof(float));
+	Xuat(f,n);
 	int a[n],x[n];
 	bool used[n];
-	for(i=0;i<n;i++) a[i]=i+1;
-	Tinh_dinh_thuc(0,x,a,used);
-	printf("Dinh thuc cua ma tran = %0.4f",Det);
+	for(i=0;i<n;i++) a[i]=i;
+	Tinh_dinh_thuc(0,f,n,Det,x,used);
+	printf("Dinh thuc cua ma tran = %0.4f",*Det);
 }
