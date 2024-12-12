@@ -1,9 +1,5 @@
 #include<stdio.h>
-int a[4]={0,2,3,5};
-int dem=0;
-int x[5]={0,0,0,0,0};
-int used[4]={0,0,0,0};
-void hoan_vi(int i)
+void hoan_vi(int i,int* a,int* x,int* used,int* dem)
 {
 	int j;
 	for(j=0;j<4;j++)
@@ -11,18 +7,18 @@ void hoan_vi(int i)
 		if(!used[j])
 		{
 			x[i]=a[j];
-			if(!(x[i]==0 && i==1))
+			if(!(x[i]==0 && i==0))
 			{
 				used[j]=1;
-				if(i==4)
+				if(i==3)
 				{
-					dem++;
+					(*dem)++;
 					int k;
-					for(k=1;k<=4;k++)
+					for(k=0;k<4;k++)
 					printf("%i",x[k]);
 					printf("\n");
 				}
-				else hoan_vi(i+1);
+				else hoan_vi(i+1,a,x,used,dem);
 				used[j]=0;
 			}
 		}
@@ -30,6 +26,10 @@ void hoan_vi(int i)
 }
 void main()
 {
-	hoan_vi(1);
-	printf("%d",dem);
+	int a[4]={0,2,3,5};
+	int* dem = (int*)calloc(1,sizeof(int));
+	int x[4]={0,0,0,0};
+	int used[4]={0,0,0,0};
+	hoan_vi(0,a,x,used,dem);
+	printf("%d",*(dem));
 }
