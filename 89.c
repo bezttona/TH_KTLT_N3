@@ -1,9 +1,8 @@
 #include<stdio.h>
-int i;
 void TinhTong(int a[],int b[],int L)
 {
 	int result[1001];
-	int carry=0,s;
+	int i,carry=0,s;
 	for(i=L-1;i>=0;i--)
 	{
 		s=a[i]+b[i]+carry;
@@ -22,7 +21,7 @@ void TinhTong(int a[],int b[],int L)
 }
 void TinhHieu(int a[],int b[],int L)
 {
-	int IsGreater=1;
+	int i,IsGreater=1;
 	for(i=0;i<L;i++) 
 	{
 		if(a[i]==b[i]) continue;
@@ -55,7 +54,7 @@ void TinhHieu(int a[],int b[],int L)
 }
 void main()
 {
-	int a[1001],b[1001],LengthA=0,LengthB=0;
+	int a[1001],b[1001],LengthA=0,LengthB=0,i;
 	printf("Nhap so a:");
 	while(1)
 	{
@@ -80,7 +79,7 @@ void main()
 		}
 		else break;
 	}
-	int i,L=LengthA;
+	int L=LengthA;
 	if(LengthA<LengthB)
 	{
 		L=LengthB;
