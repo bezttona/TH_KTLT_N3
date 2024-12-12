@@ -1,9 +1,8 @@
 #include<stdio.h>
-int n;
-void xuat(float a[])
+void xuat(float a[],int n)
 {
 	int i;
-	for(i=1;i<=n;i++)
+	for(i=0;i<n;i++)
 	printf("%0.4f ",a[i]);
 }
 void QuickSort(float *a,int l,int r)
@@ -28,16 +27,17 @@ void QuickSort(float *a,int l,int r)
 }
 main()
 {
+	int n;
 	scanf("%d",&n);
-	float a[n+1];
+	float a[n];
 	int i;
-	for(i=1;i<=n;i++)
+	for(i=0;i<n;i++)
 	{
 		scanf("%f",&a[i]);
 	}
-	printf("Mang a:");
-	xuat(a);
-	QuickSort(a,1,n);
+	printf("Mang a: ");
+	xuat(a,n);
+	QuickSort(a,0,n-1);
 	printf("\nMang a sau khi sap xep:");
-	xuat(a);
+	xuat(a,n);
 }
