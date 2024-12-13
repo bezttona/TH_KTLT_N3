@@ -3,26 +3,25 @@
 
 void matran(int n,int m) {
     int A[n][m];
-    int v;
+    int v,i,j;
     int t= 0, b= n-1 , l= 0, r= m-1 ;
     v=n*m;
 
     while (t<= b&& l<= r) {
-        
-        for (int i = l; i <= r; i++) {
+        for (i = l; i <= r; i++) {
             A[t][i] = v--;
         }
         t+=1;
 
         
-        for (int i = t ; i <= b; i++) {
+        for (i = t ; i <= b; i++) {
             A[i][r] = v--;
         }
         r-=1;
 
         
          {
-            for (int i = r; i >= l; i--) {
+            for (i = r; i >= l; i--) {
                 A[b][i] = v--;
             }
             b-=1;
@@ -30,7 +29,7 @@ void matran(int n,int m) {
 
         
          {
-            for (int i = b; i >= t; i--) {
+            for (i = b; i >= t; i--) {
                 A[i][l] = v--;
             }
             l+=1;
@@ -38,8 +37,8 @@ void matran(int n,int m) {
     }
 
   
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
             printf("%d ", A[i][j]);
         }
         printf("\n");
