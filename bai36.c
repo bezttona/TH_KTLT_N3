@@ -32,8 +32,6 @@ int main() {
       printf("Moi nhap lai");
       scanf("%d", &n);
     }
-    else {
     gt(n);
-    }
     return 0;
 }
