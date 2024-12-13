@@ -1,12 +1,14 @@
 #include <math.h>
 #include <stdio.h>
+void csc(int n, int d, int a){
+int i;
+for(i=1;i<=n;i++) a+=d;
+        printf("Cap so cong la:%d ",a);
+        }
 main()
 {
-	int i,n,a,d,s;
-	printf("Nhap n, d, a: ");
-	scanf("%d %d %d",&n,&d,&a);
-	s=a;
-	for(i=1;i<=n;i++) s+=d;
-	printf("Cap so cong la:%d ",s);
-	}
-	
+        int i,n,a,d,s;
+        printf("Nhap n, d, a: ");
+        scanf("%d %d %d",&n,&d,&a);
+        csc(n, d, a);}
+        
