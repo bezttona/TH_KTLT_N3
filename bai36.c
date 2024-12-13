@@ -1,26 +1,39 @@
 #include <stdio.h>
-#include <conio.h>
-int ham(int n)
-{
-    int i, s;
-    s = 1;
-    if (n % 2 == 0)
-    {
-        for (i = 2; i <= n; i += 2)
-            s *= i;
+#include <math.h>
+#include <string.h>
+#define MAX 10000
+
+char a[MAX] = {'0'};
+
+void gt(int n) {
+  memset(a, '0', MAX);
+  a[0] = '1';
+  /*Tinh giai thua*/
+  int i, j;
+  int length = 1, temp = 0;
+  for (i = n; i >= 2; i-=2) {
+    for (j = 0; j < length || temp != 0; j++) {
+      temp += (a[j] - '0') * i;
+      a[j] = (temp % 10) + '0';
+      temp /= 10;
     }
-    else
-    {
-        for (i = 1; i <= n; i += 2)
-            s *= i;
-    };
-    return s;
+    length = j;
+  }
+  for (i = length - 1; i >= 0; i--) {
+    printf("%c", a[i]);
+  }
+  printf("\n");
 }
-main()
-{
+
+int main() {
     int n;
-    printf("nhap n=");
-    scanf("%i", &n);
-    printf("n!!=%i", ham(n));
-    getch();
+    scanf("%d", &n);
+    while (n < 0) {
+      printf("Moi nhap lai");
+      scanf("%d", &n);
+    }
+    else {
+    gt(n);
+    }
+    return 0;
 }
