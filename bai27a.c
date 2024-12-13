@@ -28,11 +28,10 @@ void gt(int n) {
 int main() {
     int n;
     scanf("%d", &n);
-    if (n < 0) {
+    while (n < 0) {
       printf("Moi nhap lai");
+      scanf("%d", &n);
     }
-    else {
     gt(n);
-    }
     return 0;
 }
