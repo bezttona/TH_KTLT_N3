@@ -14,6 +14,8 @@ main()
     scanf("%d", &b);
     printf("Nhap so c:");
     scanf("%d", &c);
+    if (a!=b && b!=c && c!=a) {
     stg = timstg(a,b,c);
     printf("So trung gian la: %d", stg);
 }
+else printf("Khong co so trung gian hoac gia tri a, b, c khong hop le");}
