@@ -18,7 +18,7 @@ void luythua2(int n){
           r=r/10;
    }
  }
-        for(int i=m-1;i>=0;i--)  printf("%d",A[i]);
+        for(i=m-1;i>=0;i--)  printf("%d",A[i]);
 }
 
  void giaithua(int n){
@@ -38,18 +38,20 @@ void luythua2(int n){
           r=r/10;
    }
  }
-        for(int i=m-1;i>=0;i--)  printf("%d",A[i]);
+        for(i=m-1;i>=0;i--)  printf("%d",A[i]);
 }
  double  tich(unsigned int n){
   double  t=1;
-	for(int i=1;i<=n;i++){
+  	int i;
+	for(i=1;i<=n;i++){
 	t=t*(1+1/(pow(i,2)));
 	}
 	return t;		
 }
 double can(unsigned int n){
 	double a=0;
-	for(int i=1;i<=n;i++) a=sqrt(2+a);
+	int i;
+	for(i=1;i<=n;i++) a=sqrt(2+a);
 	return a;
 }
 int main(){
