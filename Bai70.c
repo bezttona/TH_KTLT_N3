@@ -32,8 +32,8 @@ int main() {
     printf("Nhap so phan tu cua mang B: ");
     scanf("%d", &nB);
     int A[nA], B[nB];
-    printf("Nhap gia tri mang A:"); nhapMang(A, nA);
-	printf("Nhap gia tri mang B:"); nhapMang(B, nB);
+nhapMang(A, nA);
+nhapMang(B, nB);
     printf("\nMang A truoc khi noi: ");
     xuatMang(A, nA);
     printf("Mang B truoc khi noi: ");
