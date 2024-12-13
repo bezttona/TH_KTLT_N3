@@ -7,7 +7,7 @@ for(i=1;i<=n;i++) a+=d;
         }
 main()
 {
-        int i,n,a,d,s;
+        int n,a,d;
         printf("Nhap n, d, a: ");
         scanf("%d %d %d",&n,&d,&a);
         csc(n, d, a);}
