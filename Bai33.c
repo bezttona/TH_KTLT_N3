@@ -19,4 +19,4 @@ main()
         printf("Nhap so c:");
         scanf("%d", &c);
        timstg(a, b, c);
-      }
+}
